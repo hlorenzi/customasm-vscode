@@ -1,0 +1,109 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "customasm",
+	"patterns": [
+		{
+			"include": "#directives"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#multicomment"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#function"
+		}
+	],
+	"repository": {
+		"directives": {
+			"patterns": [
+				{
+					"name": "keyword.control.customasm",
+					"match": "\\#(bits|bankdef|bank|include|res|align|labelalign|addr|d[0-9]*)\\b"
+				},
+				{
+					"name": "keyword.control.customasm",
+					"match": "\\#(ruledef|cpudef|subruledef|tokendef)\\b"
+				},
+				{
+					"name": "keyword.control.customasm",
+					"match": "\\#(size|outp|addr_end|fill)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.customasm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.customasm",
+					"match": "\\\\."
+				}
+			]
+		},
+		"multicomment": {
+			"name": "comment.block.customasm",
+			"begin": "\\;\\*",
+			"end": "\\*\\;",
+			"patterns": [
+				{
+					"include": "#multicomment"
+				}
+			]
+		},
+		"comment": {
+			"name": "comment.line.customasm",
+			"begin": "\\;",
+			"end": "\n"
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.control.customasm",
+				"match": "(\\=\\>|\\{|\\})"
+			}]
+		},
+		"number": {
+			"patterns": [{
+				"name": "constant.numeric.customasm",
+				"match": "\\b(0b[0-1_]+|0o[0-7_]+|0x[0-9A-Fa-f_]+|[0-9_]+)\\b"
+			}]
+		},
+		"constant": {
+			"patterns": [
+				{
+					"match": "(\\.*[\\w_$]+)\\s*\\=[^\\>]",
+					"captures": {
+						"1": { "name": "variable.name.customasm" }
+					}
+				},
+				{
+					"name": "variable.name.customasm",
+					"match": "\\.*[\\w_$]+\\:"
+				}
+			]
+		},
+		"function": {
+			"patterns": [
+				{
+					"name": "entity.name.function",
+					"match": "\\b(assert|incbin|inchexstr|incbinstr)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.customasm"
+}
