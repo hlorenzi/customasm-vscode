@@ -1,9 +1,5 @@
-# Change Log
+# Changelog
 
-All notable changes to the "customasm-vscode" extension will be documented in this file.
+## v0.0.2
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- Adds syntax highlighting for `#once`, `#fn`, `le()` and the string encoding functions.

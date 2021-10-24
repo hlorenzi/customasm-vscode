@@ -32,7 +32,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.customasm",
-					"match": "\\#(bits|bankdef|bank|include|res|align|labelalign|addr|d[0-9]*)\\b"
+					"match": "\\#(bits|bankdef|bank|include|once|res|align|labelalign|addr|fn|d[0-9]*)\\b"
 				},
 				{
 					"name": "keyword.control.customasm",
@@ -100,7 +100,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.function",
-					"match": "\\b(assert|incbin|inchexstr|incbinstr)\\b"
+					"match": "\\b(assert|incbin|inchexstr|incbinstr|le|utf8|utf16be|utf16le|utf32be|utf32le|ascii)\\b"
 				}
 			]
 		}
