@@ -32,7 +32,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.customasm",
-					"match": "\\#(bits|bankdef|bank|include|once|res|align|labelalign|addr|fn|d[0-9]*)\\b"
+					"match": "\\#(bits|bankdef|bank|include|once|res|align|labelalign|addr|fn|d[0-9]*|noemit)\\b"
 				},
 				{
 					"name": "keyword.control.customasm",
